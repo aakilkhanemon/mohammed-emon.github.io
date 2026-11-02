@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Emon | Computational Structural Biologist</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Academicons for ORCID / Google Scholar / ResearchGate -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --card-bg: #f8fafc;
+      --border-color: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --tag-bg: #f1f5f9;
+      --tag-text: #334155;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --max-width: 900px;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0b0f19;
+      --card-bg: #111827;
+      --border-color: #1f2937;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --tag-bg: #1e293b;
+      --tag-text: #cbd5e1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 1.25rem 4rem 1.25rem;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0 1.5rem 0;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 3rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-main);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--text-main);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.4rem 0.65rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    /* Hero / Intro */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 2.5rem;
+      align-items: start;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-text h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text .subtitle {
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text .bio {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      background: var(--card-bg);
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-primary {
+      background: var(--text-main);
+      color: var(--bg-color);
+      border-color: var(--text-main);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    /* Timeline / Recent Updates */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      border-left: 2px solid var(--border-color);
+      padding-left: 1.25rem;
+      margin-left: 0.5rem;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.65rem;
+      top: 0.4rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg-color);
+    }
+
+    .timeline-date {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .timeline-content {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-top: 0.2rem;
+    }
+
+    /* Research Cards & Pipeline Section */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-header {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    /* Pipeline Step Diagram */
+    .pipeline-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .pipeline-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .step-box {
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      padding: 1rem;
+      border-radius: 6px;
+    }
+
+    .step-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .step-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 0.25rem 0 0.5rem 0;
+    }
+
+    .step-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero-avatar {
+        order: -1;
+        max-width: 150px;
+      }
+      .hero-avatar img {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <a href="#" class="brand">Mohammed Emon</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#updates">Updates</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+      <div class="hero-text">
+        <h1>Mohammed Emon</h1>
+        <div class="subtitle">Early-Stage Researcher · MSc in Marine Biotechnology</div>
+        <p class="bio">
+          Computational structural biologist working at the intersection of biophysical simulation, 
+          cheminformatics, and machine learning. Completed the Erasmus Mundus Joint Master’s (EU-CONEXUS alliance) 
+          at UCV, La Rochelle Université, and AUA, with research visits at CNRS-LIENSs.
+        </p>
+        <p class="bio">
+          My work focuses on resolving target conformational plasticity and overcoming false-positive enrichment in virtual 
+          screening through automated Python/RDKit pipelines, ensemble docking (GNINA CNN scoring), all-atom molecular dynamics 
+          (GROMACS/Desmond), and MM-GBSA binding free-energy landscapes.
+        </p>
+
+        <div class="tags">
+          <span class="tag">AI in Drug Discovery</span>
+          <span class="tag">Structural Bioinformatics</span>
+          <span class="tag">Molecular Dynamics</span>
+          <span class="tag">Cheminformatics</span>
+          <span class="tag">Physics-Informed ML</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="mailto:aakilkhan971@gmail.com" class="btn btn-primary">
+            <i class="fa-solid fa-envelope"></i> Contact Me
+          </a>
+          <a href="https://orcid.org/0000-0002-2150-967X" target="_blank" class="btn">
+            <i class="ai ai-orcid"></i> ORCID
+          </a>
+          <a href="https://www.researchgate.net/profile/Mohammed-Emon-4" target="_blank" class="btn">
+            <i class="ai ai-researchgate"></i> ResearchGate
+          </a>
+          <a href="https://github.com/aakilkhanemon" target="_blank" class="btn">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="https://linkedin.com/in/aakilkhanemon" target="_blank" class="btn">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-avatar">
+        <!-- Replace avatar.jpg with your photo inside the repository -->
+        <img src="https://avatars.githubusercontent.com/aakilkhanemon" alt="Mohammed Emon portrait" />
+      </div>
+    </section>
+
+    <!-- Recent Updates -->
+    <section id="updates">
+      <div class="section-title">
+        <i class="fa-regular fa-clock"></i> Recent Updates
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">July 2026</div>
+          <div class="timeline-content">
+            Completed Master’s thesis at Agricultural University of Athens & CNRS-LIENSs on AI-driven virtual screening targeting the human ACE C-domain.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">May 2026</div>
+          <div class="timeline-content">
+            Preprint published on ChemRxiv: <em>Systems Pharmacology-Driven Discovery of Tri-Modal Anti-Mpox Therapeutics</em>.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">December 2025</div>
+          <div class="timeline-content">
+            Completed visiting research rotation at CNRS-LIENSs / La Rochelle Université focused on automated 3D ligand preparation engines.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">September 2024</div>
+          <div class="timeline-content">
+            Awarded Erasmus Mundus Joint Master Degree Scholarship in Marine Biotechnology (EU-CONEXUS consortium).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Framework (HER-CARE / Imran Maia Style Figure & Pillars) -->
+    <section id="research">
+      <div class="section-title">
+        <i class="fa-solid fa-microscope"></i> Core Research Framework
+      </div>
+      
+      <div class="card-grid">
+        <div class="card">
+          <div>
+            <div class="card-header">Pillar 01 / Ligand Preparation</div>
+            <h3>Automated Cheminformatics Engine</h3>
+            <p>14-stage modular Python/RDKit workflow resolving prototropic tautomers, protonation profiles, and low-energy 3D conformational ensembles (ETKDG v3 / MMFF94).</p>
+          </div>
+          <a href="https://github.com/aakilkhanemon" target="_blank" class="btn">View Codebase</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-header">Pillar 02 / Target Plasticity</div>
+            <h3>Ensemble Docking & CNN Scoring</h3>
+            <p>Multi-snapshot receptor screening using AutoDock Vina and GNINA convolutional neural network scoring to overcome rigid-body active-site approximations.</p>
+          </div>
+          <a href="https://github.com/aakilkhanemon" target="_blank" class="btn">View Methodology</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-header">Pillar 03 / Biophysical Rigor</div>
+            <h3>All-Atom Dynamics & MM-GBSA</h3>
+            <p>100 ns all-atom GROMACS/Desmond production trajectories with trajectory-derived binding free-energy decomposition (gmx_MMPBSA) and interaction fingerprints (PLIF).</p>
+          </div>
+          <a href="https://github.com/aakilkhanemon" target="_blank" class="btn">View Pipeline</a>
+        </div>
+      </div>
+
+      <!-- End-to-End Pipeline Schematic -->
+      <div class="pipeline-wrapper">
+        <div class="card-header">Methodological Workflow</div>
+        <h3 style="margin-top: 0.25rem;">End-to-End In Silico Therapeutics Pipeline</h3>
+        <div class="pipeline-steps">
+          <div class="step-box">
+            <div class="step-num">STEP 01</div>
+            <div class="step-title">Library Standardization</div>
+            <div class="step-desc">Tautomer enumeration, chiral centers, macro-pKa curation, and 3D minimization.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">STEP 02</div>
+            <div class="step-title">Ensemble Screening</div>
+            <div class="step-desc">High-throughput docking across AlphaFold-refined & MD-derived receptor snapshots.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">STEP 03</div>
+            <div class="step-title">Consensus Ranking</div>
+            <div class="step-desc">Integration of GNINA CNN scoring, pharmacophore fit, and PLIF interaction profiles.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">STEP 04</div>
+            <div class="step-title">Free-Energy Decomposition</div>
+            <div class="step-desc">All-atom explicit solvent MD simulations and MM-GBSA validation for lead selection.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div>© 2026 Mohammed Emon. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="mailto:aakilkhan971@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/aakilkhanemon" target="_blank">LinkedIn</a>
+        <a href="https://github.com/aakilkhanemon" target="_blank">GitHub</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Dark Mode Script -->
+  <script>
+    const themeBtn = document.getElementById('theme-btn');
+    const htmlElem = document.documentElement;
+
+    themeBtn.addEventListener('click', () => {
+      const currentTheme = htmlElem.getAttribute('data-theme');
+      const targetTheme = currentTheme === 'light' ? 'dark' : 'light';
+      htmlElem.setAttribute('data-theme', targetTheme);
+      themeBtn.innerHTML = targetTheme === 'dark' 
+        ? '<i class="fa-solid fa-sun"></i>' 
+        : '<i class="fa-solid fa-moon"></i>';
+    });
+  </script>
+</body>
+</html>
